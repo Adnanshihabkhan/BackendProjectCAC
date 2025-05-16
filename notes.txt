@@ -1,0 +1,6 @@
+
+##mongodbAtlasCluster0
+username            password
+adnanshihabdelhi  avxpSnDRJjjiLX5K
+
+
