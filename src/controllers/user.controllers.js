@@ -8,12 +8,12 @@ const registerUser = asyncHandler(async (req ,  res) => {
    // get user details from frontend ✔️
    // validation -- not empty ✔️
    // check if user already exist ✔️
-   // check for images , check for avatar
-   // upload them to cloudnary , avatar
-   // create user object -- create entry in db
-   // remove password and refresh token field form resopnse
-   // check for user creation
-   // return response
+   // check for images , check for avatar ✔️
+   // upload them to cloudnary , avatar ✔️
+   // create user object -- create entry in db ✔️
+   // remove password and refresh token field form resopnse ✔️
+   // check for user creation ✔️
+   // return response ✔️
 
    const {fullname , email , username , password} = req.body
    console.log("email: " , email);
@@ -26,7 +26,7 @@ const registerUser = asyncHandler(async (req ,  res) => {
     throw new ApiError(400 , "All fields are required")
    }
 
-   const existedUser = User.findOne({
+   const existedUser = await User.findOne({
     $or: [{username} , {email}]
    })
    if(existedUser) {
