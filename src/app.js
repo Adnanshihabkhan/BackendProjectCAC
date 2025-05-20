@@ -16,9 +16,16 @@ app.use(cookieParser())
 //routes
 //routes import
 import userRouter from "./routes/user.routes.js"
+import { ApiError } from "./utils/ApiError.js"
  
 
 //routes decleration
 app.use("/api/v1/users", userRouter)
+
+
+app.get("/test",()=>{
+   
+    throw ["this is error"]
+})
 
 export { app } 

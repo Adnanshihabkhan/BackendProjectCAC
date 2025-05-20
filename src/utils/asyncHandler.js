@@ -1,15 +1,19 @@
+import { ApiResponse } from "./ApiResponse.js";
 
-const asyncHandler = (requestHnadler)=>{
-    return (req , res , next) =>{
-        Promise.resolve(requestHnadler(req , res , next)).catch((err) => next((err)))
-    }
-}
+const asyncHandler = (requestHnadler) => {
+  return (req, next) => {
+    Promise.resolve(requestHnadler(req, res, next)).catch((err) => {
+      return next(
+        res.status(err.statusCode).json({
+          ...err,
+          message: err.message,
+        })
+      );
+    });
+  };
+};
 
-
-export { asyncHandler }
-
-
-
+export { asyncHandler };
 
 // const asyncHandler = (fn) => async (req , res , next) =>{
 //     try {
