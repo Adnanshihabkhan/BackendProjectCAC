@@ -1,6 +1,0 @@
-
-##mongodbAtlasCluster0
-username            
-adnanshihabdelhi  
-
-
